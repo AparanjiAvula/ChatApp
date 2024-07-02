@@ -16,7 +16,7 @@ app.use('/user',userRouter);
 //port and hostName
 const port=process.env.port;
 const hostname=process.env.host;
-console.log(process.env.port);
+
 
 app.listen(port,hostname,()=>{
     console.log(`server at http://${hostname}:${port}`);

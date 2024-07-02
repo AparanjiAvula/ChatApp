@@ -4,7 +4,7 @@ const userSchema=new mongoose.Schema({
      username:{type:String,require:true},
      fName:{type:String},
      LName:{type:String},
-     mobile:{type:String,require:true,unique:true},
+     email:{type:String,require:true,unique:true},
      email:{type:String},
      gender:{type:String},
      age:{type:Number},
@@ -18,7 +18,7 @@ const userSchema=new mongoose.Schema({
         }
      },
      created:{type:Date,default:Date.now()},
-     password:{type:String}
+     password:{type:String,require:true}
 })
 
 const userModel=mongoose.model('users',userSchema);
