@@ -7,7 +7,8 @@ const app=express();
 
 //middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin:'http://localhost:5173'}));
+
 config();
 
 //routes
@@ -17,6 +18,9 @@ app.use('/user',userRouter);
 const port=process.env.port;
 const hostname=process.env.host;
 
+app.get('/',(req,res)=>{
+    res.send({msg:'Api working'});
+})
 
 app.listen(port,hostname,()=>{
     console.log(`server at http://${hostname}:${port}`);

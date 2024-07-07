@@ -149,7 +149,7 @@ function Register() {
               <br />
               <button className="btn btn-info">Register</button><br/><br/>
                     <h3><i>If You don't have an account ?</i></h3><br/>
-                    <Link to='/register'>LogIn</Link>
+                    <Link to='/'>LogIn</Link>
             </form>
           </div>
         </div>

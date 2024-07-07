@@ -7,6 +7,7 @@ import jsonwebtoken from 'jsonwebtoken';
 config();
 
 export const userSignup = async(req, res) => {
+    console.log(req.body);
     try {
         const { username, fName, password, email } = req.body;
 
@@ -22,8 +23,8 @@ export const userSignup = async(req, res) => {
            else{
                 const hashpassword=bcrypt.hashSync(password,10)
                 const user=new userModel({...req.body,password:hashpassword});
-                let response= await user.save();
-                res.status(201).send(response);
+                 await user.save();
+                res.status(201).send({msg:'Registered Successfully'});
            }
         }
 
@@ -47,8 +48,10 @@ export const userLogin=async(req,res)=>{
                 if(matchpassword) {
                      //jwt
                      const userId=response._id;
+                     
                      const token=jsonwebtoken.sign({userId},process.env.JWT_secret,{ expiresIn:"7d"})
-                     res.cookie('auth_token',token,{maxAge:1000*60*60*24*7,httpOnly:true})                   
+                     res.cookie('auth_token',token,{maxAge:1000*60*60*24*7,httpOnly:true})
+
                      return res.status(200).send({message:"Login successfully"});
                 }
                 else return res.status(400).send({message:"Invalid user"});

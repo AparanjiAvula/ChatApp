@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Home() {
+    const [sideBar,setSideBar]=useState(false);
   return (
     <>
       <nav>
