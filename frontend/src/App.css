@@ -57,8 +57,10 @@ nav img{
 }
 aside{
     width: 200px;
-    background-color:purple;
-    height: 1000;
+    background-color:bisque;
+    height: 640px;
+    display: grid;
+    justify-content: space-around;
 }
 aside img{
     width: 60px;
